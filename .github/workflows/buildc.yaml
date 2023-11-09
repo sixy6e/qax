@@ -46,12 +46,14 @@ jobs:
           env-name: "${{ env.CONDA_ENV }}"
 
       - name: Windows Distributions
+        if: matrix.os == 'windows-latest'
         uses: ./.github/actions/windows
         with:
           env-name: "${{ env.CONDA_ENV }}"
           qax-version: "${{ steps.qax-build.outputs.version }}"
 
       - name: Upload
+        if: matrix.os == 'windows-latest'
         uses: ./.github/actions/upload
         with:
           dist-name: "qax_dist_${{ steps.qax-build.outputs.version }}"

@@ -21,10 +21,10 @@ runs:
           ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}-${{
           hashFiles('conda-environment.yaml') }}
 
-   - name: Create conda env
-     uses: conda-incubator/setup-miniconda@v2
-     with:
-       auto-update-conda: true
-       python-version: ${{ matrix.python-version }}
-       environment-file: conda-environment.yaml
-       activate-environment: ~/miniconda/envs/${{ inputs.env-name }}
+    - name: Create conda env
+      uses: conda-incubator/setup-miniconda@v2
+      with:
+        auto-update-conda: true
+        python-version: ${{ matrix.python-version }}
+        environment-file: conda-environment.yaml
+        activate-environment: ~/miniconda/envs/${{ inputs.env-name }}

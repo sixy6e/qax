@@ -35,7 +35,9 @@ jobs:
         shell: bash -l {0}
         run: |
           ls -la
-          tree .github/
+          ls .github/
+          ls .github/actions
+          ls .github/actions/build
 
       - name: Build QAX
         id: qax-build

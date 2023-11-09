@@ -35,6 +35,7 @@ runs:
       env:
         VERSION: ${{ inputs.qax-version }}
       run: |
-        echo "VERSION=${{ inputs.qax-version }}" >> $GITHUB_ENV
+        # echo "VERSION=${{ inputs.qax-version }}" >> $GITHUB_ENV
+        echo "$VERSION"
         conda activate ~/miniconda/envs/${{ inputs.env-name }}
         ISCC install/qax.iss

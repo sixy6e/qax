@@ -27,18 +27,18 @@ jobs:
           fetch-depth: 0
 
       - name: Establish Env
-        uses: .github/actions/environment
+        uses: ./.github/actions/environment
         with:
           env-name: "${{ env.CONDA_ENV }}"
 
       - name: Build QAX
         id: qax-build
-        uses: .github/actions/build
+        uses: ./.github/actions/build
         with:
           env-name: "${{ env.CONDA_ENV }}"
 
       - name: Upload
-        uses: .github/actions/upload
+        uses: ./.github/actions/upload
         with:
           dist-name: "qax_dist_${{ steps.qax-build.outputs.version }}"
           dist-path: "qax_dist_${{ steps.qax-build.outputs.version }}.tar.gz"

@@ -30,6 +30,7 @@ runs:
       run: |
         conda activate ~/miniconda/envs/${{ inputs.env-name }}
         echo "VERSION=$(python -m setuptools_scm)" >> $GITHUB_OUTPUT
+        echo "VERSION=$(python -m setuptools_scm)" >> $GITHUB_ENV
 
     # yes we could have a separate job, specificially a sphinx build action
     # and then upload the artifact and then download it within the win-builder.

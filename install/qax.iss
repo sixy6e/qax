@@ -5,7 +5,7 @@
 
 #define MyAppPublisher "AusSeabed Development Team"
 #define MyAppURL "https://github.com/ausseabed/qax"
-#define MyAppVersion GetEnv("VERSION")
+#define MyAppVersion GetEnv("env.VERSION")
 #define WorkDir GetEnv("WORKDIR")
 
 

@@ -46,7 +46,7 @@ jobs:
           env-name: "${{ env.CONDA_ENV }}"
 
       - name: Windows Distributions
-        uses: .//github/actions/windows
+        uses: ./.github/actions/windows
         with:
           env-name: "${{ env.CONDA_ENV }}"
           qax-version: "${{ steps.qax-build.outputs.version }}"

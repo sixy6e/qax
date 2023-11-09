@@ -5,7 +5,6 @@ inputs:
   env-name:
     description: "Name for Conda environment"
     required: true
-    default: "build-qax"
   qax-version:
     description: "Version identifier for current QAX build"
     required: true
@@ -34,7 +33,10 @@ runs:
       shell: bash -l {0}
       env:
         VERSION: "${{ inputs.qax-version }}"
+        ENAME: ${{ inputs.env-name }}
       run: |
         echo "$VERSION"
+        echo "$ENAME"
+        echo "HELLO WORLD"
         conda activate ~/miniconda/envs/${{ inputs.env-name }}
         ISCC install/qax.iss

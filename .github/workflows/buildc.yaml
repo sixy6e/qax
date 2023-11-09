@@ -37,11 +37,11 @@ jobs:
           ls -la
           ls .github/
           ls -l .github/actions
-          ls -l .github/actions/build
+          ls -l .github/actions/build-qax
 
       - name: Build QAX
         id: qax-build
-        uses: ./.github/actions/build
+        uses: ./.github/actions/build-qax
         with:
           env-name: "${{ env.CONDA_ENV }}"
 

@@ -31,6 +31,12 @@ jobs:
         with:
           env-name: "${{ env.CONDA_ENV }}"
 
+      - name: Test dir
+        shell: bash -l {0}
+        run: |
+          ls -la
+          tree .github/
+
       - name: Build QAX
         id: qax-build
         uses: ./.github/actions/build

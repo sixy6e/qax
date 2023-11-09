@@ -9,9 +9,9 @@ inputs:
 
 # https://docs.github.com/en/actions/creating-actions/creating-a-composite-action
 outputs:
-  VERSION:
+  version:
     description: "QAX build verion id"
-    value: ${{ steps.QAX-Version.outputs.VERSION }}
+    value: ${{ steps.qax-version.outputs.version }}
 
 runs:
   using: "composite"
@@ -25,11 +25,12 @@ runs:
         which pip
         pip install .
 
-    - name: QAX-Version
+    - name: QAX Version
+      id: qax-verision
       shell: bash -l {0}
       run: |
         conda activate ~/miniconda/envs/${{ inputs.env-name }}
-        echo "VERSION=$(python -m setuptools_scm)" >> $GITHUB_OUTPUT
+        echo "version=$(python -m setuptools_scm)" >> $GITHUB_OUTPUT
         # echo "VERSION=$(python -m setuptools_scm)" >> $GITHUB_ENV
 
     # yes we could have a separate job, specificially a sphinx build action

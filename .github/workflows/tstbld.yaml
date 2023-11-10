@@ -1,0 +1,73 @@
+name: QAX Test
+
+on:
+  push:
+    branches:
+      - 'test-comp'
+  workflow_dispatch:
+
+jobs:
+  build:
+    # whilst we might never need it, it does however fleshout the idea of multiple os and py builds
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: ["windows-latest"]
+        python-version: ["3.10"]
+
+    env:
+      # mostly used as helpers for retrieving as env vars within inno setup
+      # VERSION: "v10.0.0.dev0"
+      WORKDIR: ${{ github.workspace }}
+      CONDA_ENV: "build-qax"
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Establish Env
+        uses: ./.github/actions/environment
+        with:
+          env-name: "${{ env.CONDA_ENV }}"
+
+      - name: Test dir
+        shell: bash -l {0}
+        run: |
+          ls -la
+          ls .github/
+          ls -l .github/actions
+          ls -l .github/actions/build-qax
+
+      - name: Get V
+        id: vvv
+        uses: ./.github/actions/tstb
+        with:
+          env-name: "${{ env.CONDA_ENV }}"
+
+      - name: Check V
+        shell: bash -l {0}
+        run: |
+          echo "${{ steps.vvv.outputs.version }}"
+
+      # - name: Build QAX
+      #   id: qax-build
+      #   uses: ./.github/actions/build-qax
+      #   with:
+      #     env-name: "${{ env.CONDA_ENV }}"
+
+      # - name: Windows Distributions
+      #   if: matrix.os == 'windows-latest'
+      #   uses: ./.github/actions/windows
+      #   with:
+      #     env-name: "${{ env.CONDA_ENV }}"
+      #     qax-version: "${{ steps.qax-build.outputs.version }}"
+
+      # - name: Upload
+      #   if: matrix.os == 'windows-latest'
+      #   uses: ./.github/actions/upload
+      #   with:
+      #     dist-name: "qax_dist_${{ steps.qax-build.outputs.version }}"
+      #     dist-path: "qax_dist_${{ steps.qax-build.outputs.version }}.tar.gz"
+      #     setup-name: "qax_setup_${{ steps.qax-build.outputs.version }}"
+      #     setup-path: "qax_setup_${{ steps.qax-build.outputs.version }}.exe"

@@ -10,7 +10,7 @@ inputs:
 # https://docs.github.com/en/actions/creating-actions/creating-a-composite-action
 outputs:
   version:
-    description: "QAX build verion id"
+    description: "QAX build version id"
     value: ${{ steps.qax-version.outputs.version }}
 
 runs:
@@ -25,7 +25,7 @@ runs:
         which pip
         pip install .
 
-    - id: qax-verision
+    - id: qax-version
       name: QAX Version
       shell: bash -l {0}
       run: |

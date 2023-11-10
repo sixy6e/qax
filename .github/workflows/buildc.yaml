@@ -31,14 +31,6 @@ jobs:
         with:
           env-name: "${{ env.CONDA_ENV }}"
 
-      - name: Test dir
-        shell: bash -l {0}
-        run: |
-          ls -la
-          ls .github/
-          ls -l .github/actions
-          ls -l .github/actions/build-qax
-
       - name: Build QAX
         id: qax-build
         uses: ./.github/actions/build-qax
@@ -60,3 +52,5 @@ jobs:
           dist-path: "qax_dist_${{ steps.qax-build.outputs.version }}.tar.gz"
           setup-name: "qax_setup_${{ steps.qax-build.outputs.version }}"
           setup-path: "qax_setup_${{ steps.qax-build.outputs.version }}.exe"
+          # pdf-name: "HydrOfficeQAX.pdf"
+          # pdf-path: "docs/_build/latex/HydrOfficeQAX.pdf"

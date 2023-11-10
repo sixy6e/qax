@@ -16,7 +16,6 @@ runs:
       shell: bash -l {0}
       run: |
         conda activate ~/miniconda/envs/${{ inputs.env-name }}
-        conda info --envs
         pyinstaller install/cli.spec
 
     - name: Zip container
@@ -26,19 +25,12 @@ runs:
         # tarballs may cause user questions to come back
         # will switch to 7z later
         tar -czf "qax_dist_${{ inputs.qax-version }}.tar.gz" dist/qax
-        # zip -r "qax_dist_${{ env.VERSION }}.zip" dist/
         # 7z "qax_dist_${{ env.VERSION }}.zip" dist/
-        echo "${{ env.VERSION }}"
-        ls -lhtr
 
     - name: Run inno setup
       shell: bash -l {0}
       env:
         VERSION: "${{ inputs.qax-version }}"
-        ENAME: ${{ inputs.env-name }}
       run: |
-        echo "$VERSION"
-        echo "$ENAME"
-        echo "HELLO WORLD"
         conda activate ~/miniconda/envs/${{ inputs.env-name }}
         ISCC install/qax.iss

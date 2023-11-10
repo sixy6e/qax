@@ -25,13 +25,14 @@ runs:
         which pip
         pip install .
 
-    - name: QAX Version
-      id: qax-verision
+    - id: qax-verision
+      name: QAX Version
       shell: bash -l {0}
       run: |
         conda activate ~/miniconda/envs/${{ inputs.env-name }}
         echo "version=$(python -m setuptools_scm)" >> "$GITHUB_OUTPUT"
         python -m setuptools_scm
+        echo "$version"
         # echo "VERSION=$(python -m setuptools_scm)" >> $GITHUB_ENV
 
     # yes we could have a separate job, specificially a sphinx build action

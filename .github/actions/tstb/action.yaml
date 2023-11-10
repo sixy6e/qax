@@ -25,7 +25,7 @@ runs:
         which pip
         pip install .
 
-    - id: qax-verision
+    - id: qax-version
       name: QAX Version
       shell: bash -l {0}
       run: |

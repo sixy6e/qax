@@ -16,6 +16,9 @@ runs:
   using: "composite"
   steps:
     - name: Release the QAX
-      uses: Roang-zero1/github-create-release-action@v2
+      uses: softprops/action-gh-release@v1
       with:
-        args: "${{ inputs.dist-path }} ${{ inputs.setup-path }} ${{ inputs.pdf-path }}"
+        files: |
+          "${{ inputs.dist-path }}"
+          "${{ inputs.setup-path }}"
+          "${{ inputs.pdf-path }}"

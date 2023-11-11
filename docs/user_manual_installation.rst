@@ -143,6 +143,7 @@ Install pyinstaller
 Use `pyinstaller` to generate a redistributable directory of the dependencies included in the conda env
 **********************************************************************************************************
 Run the spec file from this directory.
+
 ::
     pyinstaller install/cli.spec
 
@@ -151,6 +152,7 @@ This will produce a `dist` and `build` directory. The dist directory is the 'red
 Use Inno Setup to build an msi install file from the redistributable directory contents
 *****************************************************************************************
 Run the iss file from this directory.
+
 ::
     "c:\Program Files (x86)\Inno Setup 6\ISCC.exe" qax.iss
 

@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - 'composite-actions'
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
   workflow_dispatch:
 
 jobs:
@@ -52,9 +54,10 @@ jobs:
           dist-path: "qax_dist_${{ steps.qax-build.outputs.version }}.tar.gz"
           setup-name: "qax_setup_${{ steps.qax-build.outputs.version }}"
           setup-path: "qax_setup_${{ steps.qax-build.outputs.version }}.exe"
-          # pdf-name: "HydrOfficeQAX.pdf"
-          # pdf-path: "docs/_build/latex/HydrOfficeQAX.pdf"
+          pdf-name: "HydrOfficeQAX.pdf"
+          pdf-path: "docs/_build/latex/HydrOfficeQAX.pdf"
 
+      # as we need to provide windows builds, only release from matrix op running windows
       - name: Release
         if: |
           matrix.os == 'windows-latest' &&

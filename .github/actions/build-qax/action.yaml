@@ -42,8 +42,8 @@ runs:
         conda activate ~/miniconda/envs/${{ inputs.env-name }}
         conda install -y -c conda-forge miktex
         cd docs
-        make.bat html
-        make.bat latexpdf
+        ./make.bat html
+        ./make.bat latexpdf
         cd ../
 
     - name: Docs-build-Linux

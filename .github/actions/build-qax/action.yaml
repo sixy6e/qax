@@ -46,6 +46,8 @@ runs:
         # ./make.bat html
         .\make.bat latexpdf
         # cat _build/latex/HydrOfficeQAX.log
+        ls -l
+        ls -l _build/latex
         cd ../
 
     # - name: Docs-build-Linux

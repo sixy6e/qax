@@ -41,11 +41,13 @@ runs:
       run: |
         conda activate ~/miniconda/envs/${{ inputs.env-name }}
         conda install -y -c conda-forge miktex
-        cd docs
+        # cd docs
+        pushd docs
         # ./make.bat html
         ./make.bat latexpdf
         # cat _build/latex/HydrOfficeQAX.log
         # cd ../
+        popd
 
     # - name: Docs-build-Linux
     #   if: ${{ matrix.os }} == 'ubuntu-latest'

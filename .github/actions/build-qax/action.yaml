@@ -37,14 +37,15 @@ runs:
     # to support different os's via environment.yaml
     - name: Docs-build-Windows
       if: ${{ matrix.os }} == 'windows-latest'
-      shell: bash -l {0}
+      # shell: bash -l {0}
+      shell: pwsh
       run: |
         conda activate ~/miniconda/envs/${{ inputs.env-name }}
         conda install -y -c conda-forge miktex
         cd docs
         # ./make.bat html
-        ./make.bat latexpdf
-        cat _build/latex/HydrOfficeQAX.log
+        .\make.bat latexpdf
+        # cat _build/latex/HydrOfficeQAX.log
         cd ../
 
     # - name: Docs-build-Linux

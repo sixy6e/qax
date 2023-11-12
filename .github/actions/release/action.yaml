@@ -8,9 +8,9 @@ inputs:
   setup-path:
     description: "Pathname to QAX setup installer."
     required: true
-  pdf-path:
-    description: "Pathname to QAX PDF document."
-    required: true
+  # pdf-path:
+  #   description: "Pathname to QAX PDF document."
+  #   required: true
 
 runs:
   using: "composite"
@@ -21,4 +21,4 @@ runs:
         files: |
           "${{ inputs.dist-path }}"
           "${{ inputs.setup-path }}"
-          "${{ inputs.pdf-path }}"
+          # "${{ inputs.pdf-path }}"

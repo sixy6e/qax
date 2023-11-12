@@ -35,13 +35,13 @@ runs:
     # Also wanting to avoid individual package installs, unfortunately for some
     # packages, they're os specific and conda currently doesn't have a method
     # to support different os's via environment.yaml
-    - name: Docs-build-Windows
-      if: ${{ matrix.os }} == 'windows-latest'
-      shell: bash -l {0}
-      run: |
-        conda activate ~/miniconda/envs/${{ inputs.env-name }}
-        conda install -y -c conda-forge miktex
-        cd docs
-        ./make.bat html
-        ./make.bat latexpdf
-        cd ../
+    # - name: Docs-build-Windows
+    #   if: ${{ matrix.os }} == 'windows-latest'
+    #   shell: bash -l {0}
+    #   run: |
+    #     conda activate ~/miniconda/envs/${{ inputs.env-name }}
+    #     conda install -y -c conda-forge miktex
+    #     cd docs
+    #     ./make.bat html
+    #     ./make.bat latexpdf
+    #     cd ../

@@ -15,6 +15,7 @@ cartopy
 pyproj==3.4.0
 setuptools-scm>=8.0
 myst-parser
+platformdirs
 git+https://github.com/ausseabed/qajson.git
 git+https://github.com/ausseabed/pyall.git
 git+https://github.com/ausseabed/pygsf.git

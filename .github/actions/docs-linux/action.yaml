@@ -18,7 +18,8 @@ runs:
       shell: bash -l {0}
       run: |
         conda activate ~/miniconda/envs/${{ inputs.env-name }}
-        conda install -y -c conda-forge texlive-core
+        # conda install -y -c conda-forge texlive-core
+        sudo apt-get install texlive-latex-extra latexmk texlive
         cd docs
         make html
         make latexpdf

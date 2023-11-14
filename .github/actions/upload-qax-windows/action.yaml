@@ -27,10 +27,3 @@ runs:
         name: "${{ inputs.setup-name }}"
         path: "${{ inputs.setup-path }}"
         retention-days: 6
-
-    # - name: Upload QAX PDF Document
-    #   uses: actions/upload-artifact@v3
-    #   with:
-    #     name: "${{ inputs.pdf-name }}"
-    #     path: "${{ inputs.pdf-path }}"
-    #     retention-days: 6

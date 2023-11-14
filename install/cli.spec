@@ -33,7 +33,6 @@ block_cipher = None
 datas = []
 datas += collect_data_files('hyo2.qax', include_py_files=True)
 datas += copy_metadata('hyo2.qax')
-datas += collect_data_files('win32com', include_py_files=True)
 datas.append((proj_data ,"Library\\share\\proj"))
 datas.append((qt_platforms ,"platforms"))
 datas.append((qt_webengine_res ,"."))
@@ -50,7 +49,7 @@ a = Analysis(['cli.py'],
              pathex=[qax_root, bin_dir],
              binaries=[],
              datas=datas,
-             hiddenimports=['PySide2.QtPrintSupport','PySide2.QtWebChannel','PySide2.QtWebEngineCore','PySide2.QtQuick', 'pyproj', 'hyo2.abc', 'hyo2.mate','hyo2.qax','hyo2.mate.qax.plugin', 'hyo2.qax.plugins.test', 'hyo2.qax.plugins.placeholder', 'ausseabed.mbesgc', 'ausseabed.mbesgc.qax.plugin', 'ausseabed.findergc', 'ausseabed.findergc.qax.plugin'],
+             hiddenimports=['PySide2.QtPrintSupport','PySide2.QtWebChannel','PySide2.QtWebEngineCore','PySide2.QtQuick', 'pyproj', 'hyo2.abc', 'hyo2.mate','hyo2.qax','hyo2.mate.qax.plugin', 'hyo2.qax.plugins.test', 'hyo2.qax.plugins.placeholder', 'ausseabed.mbesgc', 'ausseabed.mbesgc.qax.plugin', 'ausseabed.findergc', 'ausseabed.findergc.qax.plugin', 'win32'],
              hookspath=[hooks_dir],
              runtime_hooks=[],
              excludes=[],

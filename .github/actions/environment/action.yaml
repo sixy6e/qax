@@ -28,3 +28,9 @@ runs:
         python-version: ${{ matrix.python-version }}
         environment-file: conda-environment.yaml
         activate-environment: ~/miniconda/envs/${{ inputs.env-name }}
+
+      # According to docs; libmamba should be default from Sept 2023
+      # unfortunately, testing in Nov 2023 shows it is still classic
+    - name: Set libmamba
+      shell: bash -l {0}
+      run: conda config --set solver libmamba

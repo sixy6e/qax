@@ -33,6 +33,7 @@ block_cipher = None
 datas = []
 datas += collect_data_files('hyo2.qax', include_py_files=True)
 datas += copy_metadata('hyo2.qax')
+datas += collect_data_files('win32com', include_py_files=True)
 datas.append((proj_data ,"Library\\share\\proj"))
 datas.append((qt_platforms ,"platforms"))
 datas.append((qt_webengine_res ,"."))
